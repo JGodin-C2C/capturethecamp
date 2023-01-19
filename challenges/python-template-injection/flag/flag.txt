@@ -1,0 +1,1 @@
+C2C{Template_injection_is_pwnable}

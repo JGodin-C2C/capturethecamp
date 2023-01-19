@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: md5Collision
+  name: md5collision
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: md5Collision
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: md5Collision
+    spec:
+      containers:
+      - image: php:8.2.1-apache-bullseye
+        name: apache
+        volumeMounts:
+        - mountPath: /var/www/html/
+          name: challenge
+        - mountPath: /flag
+          name: flag
+      volumes:
+      - name: flag
+        secret:
+          secretName: md5collisionflag
+      - name: challenge
+        configMap:
+          name: md5collisionchallenge
+

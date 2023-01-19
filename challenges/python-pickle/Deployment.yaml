@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: picklesecurit
+  name: picklesecurit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: picklesecurit
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: picklesecurit
+    spec:
+      containers:
+      - image: juliengodin/python-flask:1.1
+        name: flask
+        volumeMounts:
+        - mountPath: /data
+          name: challenge
+        - mountPath: /flag
+          name: flag
+      volumes:
+      - name: flag
+        secret:
+          secretName: picklesecuritflag
+      - name: challenge
+        configMap:
+          name: picklesecuritchallenge
+

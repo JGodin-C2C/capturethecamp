@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: templateinjection
+  name: templateinjection
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: templateinjection
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: templateinjection
+    spec:
+      containers:
+      - image: juliengodin/python-flask:1.1
+        name: flask
+        volumeMounts:
+        - mountPath: /data
+          name: challenge
+        - mountPath: /flag
+          name: flag
+      volumes:
+      - name: flag
+        secret:
+          secretName: templateinjectionflag
+      - name: challenge
+        configMap:
+          name: templateinjectionchallenge
+

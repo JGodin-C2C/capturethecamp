@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: phpinjection
+  name: phpinjection
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpinjection
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: phpinjection
+    spec:
+      containers:
+      - image: docker.io/juliengodin/challengecommand:1.0
+        name: nginx
+        volumeMounts:
+        - mountPath: /var/www/html/
+          name: challenge
+        - mountPath: /flag
+          name: flag
+      volumes:
+      - name: flag
+        secret:
+          secretName: phpinjectionflag
+      - name: challenge
+        configMap:
+          name: phpinjectionchallenge
+
