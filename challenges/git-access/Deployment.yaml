@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gitaccess
+  name: gitaccess
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitaccess
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: gitaccess
+    spec:
+      containers:
+      - image: php:8.2.1-apache-bullseye
+        name: apache
+        command: [ "/bin/sh", "-c", "cd /var/www/html/ && tar xvf /sources/localweb.tar && apache2-foreground" ]
+        volumeMounts:
+        - mountPath: /sources
+          name: challenge
+        - mountPath: /flag
+          name: flag
+        ports:
+          - containerPort: 80
+            hostPort: 8085
+
+      volumes:
+      - name: flag
+        secret:
+          secretName: gitaccessflag
+      - name: challenge
+        configMap:
+          name: gitaccesschallenge
+
