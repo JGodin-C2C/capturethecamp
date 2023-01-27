@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
       - image: php:8.2.1-apache-bullseye
+        automountServiceAccountToken: false
         name: apache
         command: [ "/bin/sh", "-c", "cd /var/www/html/ && tar xvf /sources/localweb.tar && apache2-foreground" ]
         volumeMounts:

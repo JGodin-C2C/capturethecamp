@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
       - image: php:8.2.1-apache-bullseye
+        automountServiceAccountToken: false
         name: apache
         volumeMounts:
         - mountPath: /var/www/html/
