@@ -15,6 +15,7 @@ spec:
       labels:
         app: phpinjection
     spec:
+      serviceAccountName: ctfaccount
       containers:
       - image: docker.io/juliengodin/challengecommand:1.0
         name: nginx

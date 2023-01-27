@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: secretinvasion
+  namespace: ctfinfra
+subjects:
+- kind: ServiceAccount
+  name: ctfaccount
+  namespace: ctfinfra
+roleRef:
+  kind: Role
+  name: secretinvasion
+  apiGroup: rbac.authorization.k8s.io
