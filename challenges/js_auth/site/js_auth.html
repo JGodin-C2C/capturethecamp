@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Yet Another webpage</title>
+</head>
+<body>
+
+<h1>Webpage</h1>
+<p>We are use versionning</p>
+<p>You are not autorized to see the content of this page</p>
+<p>Please log in </p>
+Enter your password :
+<input type="text" id="passwd" name="password"></input>
+<button onclick="checkpasswd()">Login</button>
+<script>
+function checkpasswd() { var passwdtocheck = btoa(document.getElementById("passwd").value).substring(0, 43); if(passwdtocheck == "QzJDe0QwX04wVF9TaDRyM19zZWNyZXRfd2l0aF9qc30") { alert("Success use this password to validate the challenge"); } else { alert("Wrong password"); } }
+</script>
+</body>
+</html>
+

@@ -1,0 +1,15 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: subversion.capturethe.camp
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+challenge:
+  challenge: "gitaccesschallenge"
+  challengemountpath: /tmp/website/
+command:
+  - "/bin/sh"
+args:
+  - "-c"
+  - "tar -xvf /tmp/website/localweb.tar -C /var/www/html/ && sed -i 's#Options -Indexes##' /etc/apache2/conf-enabled/docker-php.conf && apache2-foreground"

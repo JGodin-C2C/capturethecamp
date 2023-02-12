@@ -1,0 +1,7 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: ctf.camptocamp.com
+      path: "/"
+    - host: capturethe.camp
+      path: "/"

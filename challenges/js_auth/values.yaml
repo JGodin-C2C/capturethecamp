@@ -1,0 +1,9 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: jsauth.capturethe.camp
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+challenge:
+  challenge: "jsauth"
