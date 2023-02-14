@@ -1,0 +1,13 @@
+image:
+  repository: docker.io/juliengodin/challengecommand
+  tag: 1.0
+ingress:
+  enabled: true
+  hosts:
+    - host: loookmanophp.capturethe.camp
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+challenge:
+  challenge: "phpinjectionchallenge"
+  flag: "phpinjectionflag"

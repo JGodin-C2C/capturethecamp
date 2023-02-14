@@ -1,0 +1,10 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: minced.capturethe.camp
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+challenge:
+  challenge: "md5collisionchallenge"
+  flag: "md5collisionflag"
