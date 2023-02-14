@@ -3,5 +3,5 @@ ingress:
   hosts:
     - host: ctf.camptocamp.com
       path: "/"
-    - host: capturethe.camp
+    - host: ctf.capturethe.camp
       path: "/"

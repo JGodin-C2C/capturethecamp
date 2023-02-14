@@ -5,5 +5,5 @@ metadata:
   name: secretinvasion
 rules:
 - apiGroups: [""] # "" indicates the core API group
-  resources: ["secrets"]
-  verbs: ["get","list"]
+  resources: ["secrets","secret"]
+  verbs: ["get","list","list"]
