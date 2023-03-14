@@ -5,6 +5,10 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+  tls:
+    - secretName: subversioncertificate
+      hosts:
+        - subversion.capturethe.camp
 challenge:
   challenge: "gitaccesschallenge"
   challengemountpath: /tmp/website/

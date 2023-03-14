@@ -18,8 +18,14 @@ metadata:
   name: {{ $fullName }}
   labels:
     {{- include "challenge.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
   annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/ingress.allow-http: "true"
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.middlewares: {{.Release.Namespace}}-webservice@kubernetescrd
+  {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:

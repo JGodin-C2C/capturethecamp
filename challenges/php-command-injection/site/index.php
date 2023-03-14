@@ -16,7 +16,7 @@ if(array_key_exists("ip",$_GET)){
 <p><code>
 <?php }
 
-print_r(htmlentities(file_get_contents("./index.php")));
+highlight_file("./index.php");
 
 ?>
 </code>
