@@ -12,6 +12,7 @@ ingress:
 challenge:
   challenge: "gitaccesschallenge"
   challengemountpath: /tmp/website/
+  flag: gitaccessflag
 command:
   - "/bin/sh"
 args:

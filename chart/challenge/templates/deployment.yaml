@@ -68,7 +68,7 @@ spec:
           {{- end }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: {{ .Values.challenge.challengeport | default 80 }}
               protocol: TCP
           livenessProbe:
             httpGet:

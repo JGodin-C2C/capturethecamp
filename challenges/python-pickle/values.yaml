@@ -1,0 +1,19 @@
+image:
+  repository: docker.io/juliengodin/python-flask
+  tag: "1.1"
+ingress:
+  enabled: true
+  hosts:
+    - host: cornichon.capturethe.camp
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: cornichoncertificate
+      hosts:
+        - cornichon.capturethe.camp
+challenge:
+  challenge: "cornichon"
+  flag: "cornichon"
+  challengemountpath: '/data/'
+  challengeport: 8000

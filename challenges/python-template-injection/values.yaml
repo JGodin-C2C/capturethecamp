@@ -1,0 +1,19 @@
+image:
+  repository: docker.io/juliengodin/python-flask
+  tag: "1.1"
+ingress:
+  enabled: true
+  hosts:
+    - host: press.capturethe.camp
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: presscertificate
+      hosts:
+        - press.capturethe.camp
+challenge:
+  challenge: "press"
+  flag: "press"
+  challengemountpath: '/data/'
+  challengeport: 8000

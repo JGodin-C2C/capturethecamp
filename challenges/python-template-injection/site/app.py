@@ -11,7 +11,7 @@ def hello_world():
         <textarea name=paragraph></textarea>
         <input type=submit value=FORMAT>"""
     else:
-        return render_template_string("<h1>" + request.form['title'] + """</h1r>
-        <h1>""" +  request.form['paragraph'] + "</hr1>")
+        return render_template_string("<h1>" + request.form['title'] + """</h1>
+        <p>""" +  request.form['paragraph'] + "</p>")
 
 
